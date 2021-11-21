@@ -1,0 +1,75 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List App</title>
+</head>
+<body style="margin: 22px 44px;">
+    
+<link rel="stylesheet" href="{% static 'todolist_app/todolist/static/style.css' %}" />
+
+<h1 style="font-size:larger; margin-bottom: -22px;">TO DO LIST APP</h1>
+<h4 style="font-size: small; font-style: italic; font-weight: normal;">welcome to that place where listers gather to-dos</h2>
+
+<!-- <h2>MY TO-DOS</h2> -->
+
+<form action="{% url 'todolist' %}" method='POST' style="text-align: center;">
+    {% csrf_token %} {{ form }}
+    <input type="submit" name="create" value="create" style="width: 100%; padding: 23px; background-color: #f9db6d; border-color: #f4eded; margin-top: 3px; cursor: pointer;"/>
+</form>
+
+
+<ul>
+    {% for task in tasks %}
+    {% if not task.completed %}
+    <li>
+        <a href="{% url 'task' task.task_id %}" style="text-decoration: none;">{{ task.task }}</a>
+    </li>
+    {% endif %}
+    {% endfor %}
+</ul>
+
+
+<h2 style="font-size:larger; margin-bottom: -17px;" >IN PROGRESS</h2>
+<ul>
+    {% for task in tasks %}
+    {% if task.in_progress %}
+    <li>
+        <a href="{% url 'task' task.task_id %}" style="text-decoration: none;">{{ task.task }}</a>
+    </li>
+    {% endif %}
+    {% endfor %}
+</ul>
+
+
+<h2 style="font-size:larger; margin-bottom: -17px;" >COMPLETED</h2>
+<ul style="text-decoration: line-through;" >
+    {% for task in tasks %}
+    {% if task.completed %}
+    <li>
+        <a href="{% url 'task' task.task_id %}" style="text-decoration: none;">{{ task.task }}</a>
+    </li>
+    {% endif %}
+    {% endfor %}
+</ul>
+
+<form action="{% url 'notes' %}">
+    <input type="submit" value="notes page" style="width: 100%; padding: 23px; background-color: #161818; border-color: #f4eded; color: whitesmoke; cursor: pointer;" /> 
+</form>
+
+<br/>
+<hr style="border: 1px solid red;"/>
+
+<h2 style="font-size:larger; margin-bottom: 0; text-align: center;" >NEVER TODO SYMBOLIC RELEASE</h2>
+<form style="text-align: center">
+    <input type="text" id="never_todo" name="never_todo" placeholder="   unburdened from ..." style="width:90%; margin-bottom: 3px;"/>
+    <input type="submit" name="never_todo" value="submit" style="width: 100%; padding: 23px; background-color: darkred; border-color: #f4eded; color: whitesmoke; cursor: pointer;" />
+</form>
+
+</body>
+</html>

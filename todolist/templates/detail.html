@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List App Task Page</title>
+</head>
+<body style="margin: 22px 44px;">
+    <form action="{% url 'task' task_id %}" method="POST" style="text-align: center;">
+        {% csrf_token %} {{ form }}
+        <br>
+        <br>
+        <input type="submit" name="save" value="edit/save" style="width: 25%; padding: 23px; background-color: #40e0d0; border-color: #f4eded; cursor: pointer;"/>
+        
+        <input type="submit" name="in_progress" value="in progress" style="width: 25%; padding: 23px; background-color: #fd3f42; border-color: #f4eded; cursor: pointer;"/>
+        
+        <input type="submit" name="completed" value="complete" style="width: 25%; padding: 23px; background-color:#00c8cc; border-color: #f4eded; cursor: pointer;"/>
+        <br>
+        <br>
+        <input type="submit" name="delete" value="DELETE" style="width: 100%; padding: 13px; background-color: darkred; border-color: #f4eded; cursor: pointer; font-weight: bold;"/>
+    </form>
+    
+    <br>
+    <form action="notes">
+        <input type="submit" value="add note" style="width: 100%; padding: 23px; background-color: #161818; border-color: #f4eded; color: whitesmoke; cursor: pointer;" /> 
+    </form>
+    <br>
+    <form action="{% url 'todolist' %}">
+        <input type="submit" value="homepage" style="width: 100%; padding: 23px; background-color: #877666; border-color: #f4eded; color: whitesmoke; cursor: pointer;" /> 
+    </form>
+    
+</body>
+</html>

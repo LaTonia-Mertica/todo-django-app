@@ -1,0 +1,35 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>To-Do List App Note Page</title>
+    </head>
+    <body style="margin: 22px 44px">
+        <h2 style="font-size: larger; margin-bottom: -22px;">MY NOTES</h2>
+
+<h4 style="font-size: small; font-style: italic; font-weight: normal;">welcome to that place where stickies are envious</h2>
+
+    <form action="{% url 'notes' %}" method='POST'>
+        {% csrf_token %} {{ form }}
+        <br/>
+        <input type="submit" name="create" value="create" style="padding: 23px; background-color: #f9db6d; border-color: #f4eded; cursor: pointer; width: 100%; margin-top: 7px;" />
+    </form>
+    
+    <ol>
+        {% for note in notes %}
+        <li>
+            {{ note.note_text }}
+        </li>
+        {% endfor %}
+    </ol>
+
+    <form action="{% url 'todolist' %}">
+        <input type="submit" value="homepage" style="width: 100%; padding: 23px; background-color: #877666; color: whitesmoke; border-color: #f4eded; cursor: pointer;" /> 
+    </form>
+
+    </body>
+    </html>
+    
