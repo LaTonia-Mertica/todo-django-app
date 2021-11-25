@@ -1,8 +1,8 @@
-<p align="center"><img src="/Users/latoniamerticasheppardwalker/Documents/JTC_2/pod_number_1/La'Tonia/django-projects/todolist_app/images/random-profile-pic-motion-color.jpg" width="100%" title="Selfie by La'Tonia Mertica" /></p>
+<p align="center"><img src="images/random-profile-pic-motion-color.jpg" width="100%" title="Selfie by La'Tonia Mertica" /></p>
 
 ## **TO DO LIST APP**
-*enter data in input fields and click submit options to manipulate content*
-
+*flow between home, detail, and note pages to enter data in input fields and click options to manipulate content*
+#### <a href="https://desolate-ravine-01896.herokuapp.com/todolist/">todolist django app live demo</a>
 <br>
 
 #### **NEXT STEP**
@@ -17,7 +17,7 @@
 - fine tune styling in django app(s) with media queries .. .<br>
 <br>
 
-<p align="center"><img src="/Users/latoniamerticasheppardwalker/Documents/JTC_2/pod_number_1/La'Tonia/django-projects/todolist_app/images/code-master-hopefuls.png" width="100%" title="Stylized Selfie by La'Tonia Mertica" /></p>
+<p align="center"><img src="images/code-master-hopefuls.png" width="100%" title="Stylized Selfie by La'Tonia Mertica" /></p>
 
 <br>
 
