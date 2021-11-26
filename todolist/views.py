@@ -52,7 +52,7 @@ def task(request, task_id):
 
         return HttpResponseRedirect(reverse('todolist'))  
 
-def notes(request):
+def notes(request, note_id):
     if request.method == 'GET':
         notes = Note.objects.all().order_by('note_id')
         form = NoteForm()
@@ -63,5 +63,11 @@ def notes(request):
         if form.is_valid():
             note = form.cleaned_data['notes']
             Note.objects.create(note_text=note)
+            
+        elif 'delete' in request.POST:
+            Note.objects.filter(pk=note_id).delete()
+            
         return HttpResponseRedirect(reverse('notes'))
+    
+
 
