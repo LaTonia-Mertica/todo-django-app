@@ -12,12 +12,10 @@
 
 <h4 style="font-size: small; font-style: italic; font-weight: normal;">welcome to that place where stickies are envious</h2>
 
-    <form action="{% url 'notes' note_id %}" method='POST'>
+    <form action="notes" method='POST'>
         {% csrf_token %} {{ form }}
         <br/>
         <input type="submit" name="create" value="create" style="padding: 23px; background-color: #f9db6d; border-color: #f4eded; cursor: pointer; width: 100%; margin-top: 7px;" />
-        <br/>
-        <input type="submit" name="delete" value="DELETE"/>
     </form>
     
     <ol>
