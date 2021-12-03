@@ -17,6 +17,11 @@
         <br/>
         <input type="submit" name="create" value="create" style="padding: 23px; background-color: #f9db6d; border-color: #f4eded; cursor: pointer; width: 100%; margin-top: 7px;" />
     </form>
+
+    <form action="{% url 'notes' %}" method="POST" style="text-align: center;">
+        {% csrf_token %} 
+    <input type="submit" name="delete" value="DELETE ALL" style="width: 100%; padding: 13px; background-color: darkred; border-color: #f4eded; cursor: pointer; font-weight: bold; margin-top: 1px;"/>
+</form>
     
     <ol>
         {% for note in notes %}
@@ -30,10 +35,6 @@
         <input type="submit" value="homepage" style="width: 100%; padding: 23px; background-color: #877666; color: whitesmoke; border-color: #f4eded; cursor: pointer;" /> 
     </form>
 
-    <form action="{% url 'notes' %}" method="POST" style="text-align: center;">
-        {% csrf_token %} 
-    <input type="submit" name="delete" value="DELETE" style="width: 100%; padding: 13px; background-color: darkred; border-color: #f4eded; cursor: pointer; font-weight: bold;"/>
-</form>
     </body>
     </html>
     
