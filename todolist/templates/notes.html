@@ -15,6 +15,15 @@
     <form action="notes" method='POST'>
         {% csrf_token %} {{ form }}
         <br/>
+        
+        <ol>
+            {% for note in notes %}
+            <li>
+                {{ note.note_text }}
+            </li>
+            {% endfor %}
+        </ol>
+
         <input type="submit" name="create" value="create" style="padding: 23px; background-color: #f9db6d; border-color: #f4eded; cursor: pointer; width: 100%; margin-top: 7px;" />
     </form>
 
@@ -23,13 +32,7 @@
     <input type="submit" name="delete" value="DELETE ALL" style="width: 100%; padding: 13px; background-color: darkred; border-color: #f4eded; cursor: pointer; font-weight: bold; margin-top: 1px;"/>
 </form>
     
-    <ol>
-        {% for note in notes %}
-        <li>
-            {{ note.note_text }}
-        </li>
-        {% endfor %}
-    </ol>
+   
 
     <form action="{% url 'todolist' %}">
         <input type="submit" value="homepage" style="width: 100%; padding: 23px; background-color: #877666; color: whitesmoke; border-color: #f4eded; cursor: pointer;" /> 
