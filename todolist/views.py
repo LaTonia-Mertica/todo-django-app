@@ -63,6 +63,9 @@ def notes(request):
         if form.is_valid():
             note = form.cleaned_data['notes']
             Note.objects.create(note_text=note)
+
+        elif 'delete' in request.POST:
+            Note.objects.all().delete()
             
         return HttpResponseRedirect(reverse('notes'))
     
