@@ -16,9 +16,9 @@
         {% csrf_token %} {{ form }}
         <br/>
         
-        <ol>
+        <ol style="font-family: monospace; text-align:justify; margin: 44px 19px">
             {% for note in notes %}
-            <li>
+            <li style="margin-bottom: 5px;">
                 {{ note.note_text }}
             </li>
             {% endfor %}
