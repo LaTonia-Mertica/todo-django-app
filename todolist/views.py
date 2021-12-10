@@ -5,11 +5,14 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .forms import TodoForm
 from .forms import NoteForm
+import uuid
+
+user = str(uuid.uuid4())
 
 # Create your views here.
 def todo(request):
     if request.method == 'GET':
-        tasks = Todo.objects.filter(user="noone").order_by('-task_id')
+        tasks = Todo.objects.filter(user=user).order_by('-task_id')
         form = TodoForm()
         return render(request = request, template_name='list.html', context={'tasks': tasks, 'form': form})
 
@@ -18,7 +21,7 @@ def todo(request):
         if form.is_valid():
             task = form.cleaned_data['task']
            
-            Todo.objects.create(task=task, user='testhere')
+            Todo.objects.create(task=task, user=user)
         return HttpResponseRedirect(reverse('todolist'))
 
 def task(request, task_id):
