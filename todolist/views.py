@@ -9,7 +9,7 @@ from .forms import NoteForm
 # Create your views here.
 def todo(request):
     if request.method == 'GET':
-        tasks = Todo.objects.all().order_by('-task_id')
+        tasks = Todo.objects.filter(user="noone").order_by('-task_id')
         form = TodoForm()
         return render(request = request, template_name='list.html', context={'tasks': tasks, 'form': form})
 
@@ -17,7 +17,8 @@ def todo(request):
         form = TodoForm(request.POST)
         if form.is_valid():
             task = form.cleaned_data['task']
-            Todo.objects.create(task=task)
+           
+            Todo.objects.create(task=task, user='testhere')
         return HttpResponseRedirect(reverse('todolist'))
 
 def task(request, task_id):

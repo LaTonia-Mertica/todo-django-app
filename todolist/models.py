@@ -6,6 +6,7 @@ class Todo(models.Model):
     task = models.CharField(max_length=255)
     completed = models.BooleanField(default=False)
     in_progress = models.BooleanField(default=False)
+    user = models.CharField(max_length=255, default='noone')
 
 
 class Note(models.Model):
