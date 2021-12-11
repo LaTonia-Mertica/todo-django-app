@@ -12,7 +12,7 @@ _flow between home, detail, and note pages to enter data in input fields and cli
 
 - better precision widths between input fields and submits (done);<br>
 - at least delete and possibly more edit capability for notes (done);<br>
-- _never todo_ tip outlining voice/release healing philosophy;<br>
+- *never todo* tip/title noting voice/release healing philosophy (done);<br>
 - more appeasing color scheme for todo page submits (done);<br>
 - overall enhanced styling throughout the todo list app ...
 
