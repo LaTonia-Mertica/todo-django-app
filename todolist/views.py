@@ -7,21 +7,23 @@ from .forms import TodoForm
 from .forms import NoteForm
 import uuid
 
-user = str(uuid.uuid4())
-
 # Create your views here.
-def todo(request):
+def todo(request):        
     if request.method == 'GET':
-        tasks = Todo.objects.filter(user=user).order_by('-task_id')
+        user_name = request.COOKIES.get('user_name')
+        tasks = Todo.objects.filter(user=user_name).order_by('-task_id')
         form = TodoForm()
-        return render(request = request, template_name='list.html', context={'tasks': tasks, 'form': form})
+        response = render(request = request, template_name='list.html', context={'tasks': tasks, 'form': form})
+        if not request.COOKIES.get('user_name'):     
+            response.set_cookie('user_name', str(uuid.uuid4()))
+        return response
 
     if request.method == 'POST':
         form = TodoForm(request.POST)
         if form.is_valid():
             task = form.cleaned_data['task']
            
-            Todo.objects.create(task=task, user=user)
+            Todo.objects.create(task=task, user=request.COOKIES.get('user_name'))
         return HttpResponseRedirect(reverse('todolist'))
 
 def task(request, task_id):
