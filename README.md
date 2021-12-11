@@ -10,10 +10,10 @@ _flow between home, detail, and note pages to enter data in input fields and cli
 
 #### **NEXT STEP**
 
-- better precision widths between input fields and submits;<br>
-- at least delete and possibly more edit capability for notes;<br>
+- better precision widths between input fields and submits (done);<br>
+- at least delete and possibly more edit capability for notes (done);<br>
 - _never todo_ tip outlining voice/release healing philosophy;<br>
-- more appeasing color scheme for todo page submits;<br>
+- more appeasing color scheme for todo page submits (done);<br>
 - overall enhanced styling throughout the todo list app ...
 
 #### **PRIMARY TODO**
